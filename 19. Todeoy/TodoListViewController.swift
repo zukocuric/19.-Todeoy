@@ -12,9 +12,15 @@ class TodoListViewController: UITableViewController {
 
     var itemArray = ["Find Mike", "Buy Eggos", "Destory Demogorgon"]
     
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let items = UserDefaults.standard.array(forKey: "TodoListArray") as? [String] {
+            itemArray = items
+            
+        
+        }
     }
 
     //MARK: - Tableview Datasource Methods
@@ -55,6 +61,7 @@ class TodoListViewController: UITableViewController {
             //what will happen once the user clicks the add item button on UIAlert
             
             self.itemArray.append(textField.text!)
+            self.defaults.set(self.itemArray, forKey: "TodoListArray")    //da se ne brisu podaci kad se aplikacija ugasi
             self.tableView.reloadData()
             
         }
