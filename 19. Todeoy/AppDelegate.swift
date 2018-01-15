@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  //////////////////////////////////////////////////////
       //  print("DidFinishLounchingWithOptions")
         //////////////////////////////////////////////////////
-        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
         return true
     }
 
